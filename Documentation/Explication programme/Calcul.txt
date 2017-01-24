@@ -1,0 +1,28 @@
+ 
+
+Au debut, chaque programme de calcul est realisé avec un bloc multiplication,
+donc par exemple pour le bloc division on a tout simplement 
+remplacer * par /:
+ 	rRes = self.rMultiplicand / self.rMultiplier
+
+par contre pour la division nous avons rajouté une variable appelé ( cut )
+qui sert a envoyé que 2 chiffre apres la virgule, nous avons declaré une seconde
+variable car cela ne fonctionné pas avec rRes et la fonction round() de python ne
+fonctionné pas :  cut = "%.2f" % rRes
+
+Lorsque Pepper reçoit les valeurs à calculer entre elle (speech reco) il est renvoie 
+en sortie en chaine de caractère ( string ) donc le bloc " string to number " est
+utile pour transformer celle chaine en nombre flottant ( float ) : 
+  def onInput_string(self, p):
+        self.number(float(p))
+        pass  
+
+Pour que Pepper puisse dire le resultat du calcul nous avons du rajouté une ligne 
+dans un bloc " say text" car la valeur a la sortie du bloc division, addition,
+multiplication ou soustraction est un nombre flottant (float) ,donc grace a cette 
+fonction :  self=str(self) on transforme la valeur d'entrée du bloc en chaine de 
+caractère.
+
+
+
+ 

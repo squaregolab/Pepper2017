@@ -1,0 +1,13 @@
+Bloc délay il est présent pour permettre au robot de bien se cadre sur la personne et de pas prendre la photo en mouvement
+Bloc take picture : il prend la photo avec la caméra supérieur du robot pepper et l'enregistre dans les fichiers locaux de pepper
+Bloc Python script : ce bloc est présent pour déplacer la photo enregistrer dans les fichier locaux du robot dans le répertoir du PC
+old_path = '/home/nao/recordings/cameras/image.jpg' #pepper's default save location
+new_path = os.path.join(self.frameManager.getBehaviorPath(self.behaviorId), '../html/image/image.jpg') #your desired save location
+try:
+            os.rename(old_path,new_path) #this moves the file
+        except Exception as e:
+            self.onError(e)
+Bloc show image et show image (1) : permettent d'afficher la photo prise par le robot pepper ( pourquoi deux blocs ? je sais pas sa fonctionne mieux avec les deux)
+Bloc Animated say : ce bloc est juste la pour annoncer que la photo a était prise et bouger dans les fichiers du PC
+Bloc tablet touch : Ce bloc est la pourt sortir du programme lorsque l'utilisateut touche la tablette du robot pepper
+

@@ -1,0 +1,18 @@
+Bloc temperature
+
+
+import json
+import urllib2
+Ces deux lignes permettent d'importer des bibliothèques nécessaire pour lire et traiter le json et les sites internet
+t = urllib2.urlopen("http://blynk-cloud.com/d6e944e53858428cbb39fe4d1fb6b0dc/get/V10")
+Cette ligne permet de récuperer la valeur de la température dans la maison domotique
+ raw = t.read()
+data = json.loads(raw)
+Ces deux lignes permettent de lire et traiter les données récuperer dans la variable t
+ temp=data[0]
+ self.tts.say('La température de la maison est de '+ str(temp)+' degrès' )
+Ces deux lignes permettent de récuperer précisement la valeur de la température et de le dire a l'oral.
+
+Bloc Humidité
+ C'est la meme code juste la pin ou l'on va chercher les données est différente 
+t = urllib2.urlopen("http://blynk-cloud.com/d6e944e53858428cbb39fe4d1fb6b0dc/get/V12")

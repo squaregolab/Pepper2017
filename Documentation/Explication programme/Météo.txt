@@ -1,0 +1,22 @@
+Bloc init : initialise la reconnaisance vocal, le langue parler, et le volume du robot
+Bloc say "Jour" : demande si la personne veut la météo pour aujourd'hui ou demain
+Bloc speech reco " Jour" : Paramètrer pour les mots clef "aujourd'hui" " demain"
+Bloc météo actuel : Ce bloc permet de récuperer une API key sur le site openweather
+de la traiter et de dire a l'oral la partie qui nous interesse (la température et l'état du temps)
+
+import json
+import urllib2
+Ces deux lignes permettent d'importer des bibliothèques nécessaire pour lire et traiter le json et les sites internet
+f = urllib2.urlopen("http://api.openweathermap.org/data/2.5/forecast?q=Perpignan,fr&mode=json&apikey=XXXX&lang=fr&units=metric")
+Cette ligne permet de récuperer l'api d'openweather sur perpignan en francais et en degrès celsius, les XXXX sont a modifier par votre APIKEY fourni sur le site
+ raw = f.read()
+data = json.loads(raw)
+Ces deux lignes permettent de lire et traiter les données récuperer dans la variable f
+ temps = data['list'][0]['weather'][0]['description'].encode('utf-8').strip()
+Cette ligne recupere l'état de la météo (ensoleillé, couvert) depuis la site en navigant dans les tableaux et la stocker dans temps
+la morceaux .encode('utf-8').strip() permet de récuperer les accents comment ensoleillé
+self.tts.say('Le temps est '+ str((int(temps) ))
+Cette ligne permet au robot de dire "Le temps est" plus la valeur récuperer sur le site et traiter "temps"
+
+
+Pour le bloc température c'est la meme chose sauf que l'on cherche dans un autre tableau

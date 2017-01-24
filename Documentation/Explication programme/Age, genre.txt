@@ -1,0 +1,18 @@
+-Au début du programme Age,genre le premier bloc demande si la personne est sûre
+-puis on rentre dans un speech reco avec deux mots clef "oui" "non" 
+-Le choix non sort du programme, le choix oui lance le scan du visage par le bloc Get age
+-Si le robot n'arrive pas a trouver de visage il passe par le bloc "error" sinon il passe dans le "Age"
+-Dans le bloc Age il y a une modification a la ligne :
+ id = self.tts.post.say('Je pense que tu as ' +str(sentence)+' ans')
+
+pour prévenir que le robot n'énonce pas l'age correct de la personne.
+-Puis après il scan le visage pour détecter le sexe de la personne
+-Si il n'arrive pas a trouver le visage ou le sexe le robot passe par le bloc "Error"
+sinon il passe dans le bloc say "Gender".
+Le bloc Get gender a été modifier à la ligne 
+
+                        self.onStopped("Tu es une femme")
+                    else:
+                        self.onStopped("Tu es un homme")
+La modification porte sur femme qui avant était fille, et homme qui avant était garçon
+Puis après on sort du programme Age,Genre

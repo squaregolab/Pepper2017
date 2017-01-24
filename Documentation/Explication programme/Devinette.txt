@@ -1,0 +1,5 @@
+-On commence par initialiser le speech reco et langage en francais, ensuite on pose la question sur dans le bloc "3 devinettes"
+-Speech reco permet d'identifier les mots clefs "Premières" "deuxième" et "troisième" qui redirige sur l'énigme
+-On annonce l'énigme a l'oral avec des animations, puis on utilise un speech reco pour identifer les mots clefs "vent" ou "repete"
+sinon il entend un autre mot que les mots clef il ira sur le bloc "Faux".
+-Si il entend la bonne réponse il passe dans le bloc "Bravo" et sort du programme "Devinette"
